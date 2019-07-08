@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminlteNetcoreEdit.cshtml";
     ViewData["EntityIcon"] = "fa fa-recycle";
-    ViewData["EditInfo"] = " TO have three status: 1. Draft (Unconfirmed TO, not ready for transfer), 2. Open (Confirmed TO, ready for transfer) and 3. Completed (Closed TO, already do the transfer process). Change status from [Draft] to [Open] to confirm the transfer order. [Completed] status is auto set when goods issue and goods receive already done.";
+    ViewData["EditInfo"] = " Để có ba trạng thái: 1. Draft (Chưa được xác nhận, chưa sẵn sàng để chuyển), 2. Open (Xác nhận TO, sẵn sàng để chuyển) và 3. Completed (Đã đóng TO, đã thực hiện quá trình chuyển). Thay đổi trạng thái từ [Draft] thành [Open] để xác nhận lệnh chuyển. Trạng thái [Completed] được đặt tự động khi vấn đề về hàng hóa và hàng hóa đã được thực hiện.";
 }
 
 @Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)

@@ -1,0 +1,24 @@
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\bin\Release\netcoreapp2.0\netcore.deps.json
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\bin\Release\netcoreapp2.0\netcore.runtimeconfig.json
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\bin\Release\netcoreapp2.0\netcore.runtimeconfig.dev.json
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\bin\Release\netcoreapp2.0\netcore.dll
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\bin\Release\netcoreapp2.0\netcore.pdb
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\netcore.csprojResolveAssemblyReference.cache
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\netcore.csproj.CoreCompileInputs.cache
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\netcore.AssemblyInfoInputs.cache
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\netcore.AssemblyInfo.cs
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\netcore.dll
+C:\Users\aegis\source\repos\_jual_code\ASP.NET Core MVC Starter - Inventory Management\netcore\netcore\obj\Release\netcoreapp2.0\netcore.pdb
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\bin\Release\netcoreapp2.0\netcore.deps.json
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\bin\Release\netcoreapp2.0\netcore.runtimeconfig.json
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\bin\Release\netcoreapp2.0\netcore.runtimeconfig.dev.json
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\bin\Release\netcoreapp2.0\netcore.dll
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\bin\Release\netcoreapp2.0\netcore.pdb
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\netcore.csprojResolveAssemblyReference.cache
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\netcore.csproj.CoreCompileInputs.cache
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\netcore.AssemblyInfoInputs.cache
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\netcore.AssemblyInfo.cs
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\netcore.dll
+C:\Users\aegis\source\repos\_jual_code\_jual_code_canyon2\Inventory Management - v002\netcore\netcore\obj\Release\netcoreapp2.0\netcore.pdb

@@ -5,7 +5,7 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_AdminlteNetcoreCreate.cshtml";
     ViewData["EntityIcon"] = "fa fa-upload";
-    ViewData["CreateInfo"] = "Goods issue or transfer out, can only process [Open] transfer order that have not been processed as goods issue or goods receive. Already processed transfer order will not show in dropdownlist.";
+    ViewData["CreateInfo"] = "Hàng hóa phát hành hoặc điều chuyển ra ngoài, chỉ có thể xử lý lệnh chuyển trạng thái [Open] nếu chưa được xử lý được lệnh điều chuyển hàng hóa thì lệnh chuyển sẽ không hiển thị và không thực hiện được.";
 }
 
 @Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)

@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h2 class="page-header">
-                        <i class="fa fa-globe"></i> Transfer Order
+                        <i class="fa fa-globe"></i> Phiếu đề nghị chuyển kho
                         <small class="pull-right">@Model.transferOrderNumber</small>
                     </h2>
                 </div>
@@ -27,31 +27,31 @@
             <!-- info row -->
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    From Warehouse
+                    Chuyển từ kho
                     <address>
                         <strong>@Model.warehouseFrom.warehouseName</strong><br>
                         @Model.warehouseFrom.street1<br>
                         @Model.warehouseFrom.street2<br>
                         @Model.warehouseFrom.city<br>
-                        attn: @Model.picName
+                        Người lập phiếu: @Model.picName
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    To Warehouse
+                    Đến kho
                     <address>
                         <strong>@Model.warehouseTo.warehouseName</strong><br>
                         @Model.warehouseTo.street1<br>
                         @Model.warehouseTo.street2<br>
                         @Model.warehouseTo.city<br>
-                        attn: @Model.picName
+                        Người lập phiếu: @Model.picName
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>TO Number:</b> @Model.transferOrderNumber<br>
-                    <b>TO Date:</b> @Model.transferOrderDate.ToString("dd-MMM-yyyy")<br>
-                    <b>PIC:</b> @Model.picName<br>
+                    <b>Số TO:</b> @Model.transferOrderNumber<br>
+                    <b>Ngày TO:</b> @Model.transferOrderDate.ToString("dd-MMM-yyyy")<br>
+                    <b>Người lập phiếu:</b> @Model.picName<br>
 
                 </div>
                 <!-- /.col -->
@@ -63,9 +63,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Qty</th>
-                                <th>Product</th>
-                                <th>Description</th>
+                                <th>Số lượng</th>
+                                <th>Hàng hóa</th>
+                                <th>Mã hàng hóa</th>
                             </tr>
                         </thead>
                         <tbody>

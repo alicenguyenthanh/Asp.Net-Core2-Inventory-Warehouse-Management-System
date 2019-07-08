@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h2 class="page-header">
-                        <i class="fa fa-globe"></i> Goods Issue
+                        <i class="fa fa-globe"></i> Phiếu điều chuyển kho
                         <small class="pull-right">@Model.transferOutNumber</small>
                     </h2>
                 </div>
@@ -27,33 +27,33 @@
             <!-- info row -->
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    From Warehouse
+                    Từ kho
                     <address>
                         <strong>@Model.warehouseFrom.warehouseName</strong><br>
                         @Model.warehouseFrom.street1<br>
                         @Model.warehouseFrom.street2<br>
                         @Model.warehouseFrom.city<br>
-                        attn: @Model.transferOrder.picName
+                        Người lập phiếu: @Model.transferOrder.picName
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    To Warehouse
+                    Đến kho
                     <address>
                         <strong>@Model.warehouseTo.warehouseName</strong><br>
                         @Model.warehouseTo.street1<br>
                         @Model.warehouseTo.street2<br>
                         @Model.warehouseTo.city<br>
-                        attn: @Model.transferOrder.picName
+                        Người lập phiếu: @Model.transferOrder.picName
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Goods Issue Number:</b> @Model.transferOutNumber<br>
-                    <b>Goods Issue Date:</b> @Model.transferOutDate.ToString("dd-MMM-yyyy")<br>
-                    <b>TO Number:</b> @Model.transferOrder.transferOrderNumber<br>
-                    <b>TO Date:</b> @Model.transferOrder.transferOrderDate.ToString("dd-MMM-yyyy")<br>
-                    <b>PIC:</b> @Model.transferOrder.picName<br>
+                    <b>Số TOT:</b> @Model.transferOutNumber<br>
+                    <b>Ngày TOT:</b> @Model.transferOutDate.ToString("dd-MMM-yyyy")<br>
+                    <b>Số TO:</b> @Model.transferOrder.transferOrderNumber<br>
+                    <b>Ngày TO:</b> @Model.transferOrder.transferOrderDate.ToString("dd-MMM-yyyy")<br>
+                    <b>Người lập phiếu:</b> @Model.transferOrder.picName<br>
 
                 </div>
                 <!-- /.col -->
@@ -65,9 +65,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Qty</th>
-                                <th>Product</th>
-                                <th>Description</th>
+                                <th>Số lượng</th>
+                                <th>Hàng hóa</th>
+                                <th>Mã hàng hóa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,7 +89,7 @@
             <div class="row">
                 <!-- accepted payments column -->
                 <div class="col-xs-6">
-                    <p class="lead">Descriptions:</p>
+                    <p class="lead">Thông tin mô tả:</p>
                     <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                         @Model.description
                     </p>
