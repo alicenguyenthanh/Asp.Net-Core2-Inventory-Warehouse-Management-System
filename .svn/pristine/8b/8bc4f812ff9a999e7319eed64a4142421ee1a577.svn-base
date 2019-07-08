@@ -1,0 +1,68 @@
+﻿@model IEnumerable<netcore.Models.Invent.ShipmentLine>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminlteNetcoreIndex.cshtml";
+}
+
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.qty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.qtyShipment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.qtyInventory)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.warehouse)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtyShipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtyInventory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.branch.branchId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.productId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shipment.shipmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.warehouse.warehouseId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.shipmentLineId"><i class="fa fa-pencil"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.shipmentLineId"><i class="fa fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.shipmentLineId"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

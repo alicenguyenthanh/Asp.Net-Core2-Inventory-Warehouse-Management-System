@@ -1,0 +1,80 @@
+﻿@model netcore.Models.Invent.Warehouse
+@inject netcore.Data.ApplicationDbContext _context;
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-cubes";
+    ViewData["DeleteInfo"] = "Warehouse that already have transactions (Receiving, Shipment, Transfer Order) can not be deleted.";
+    netcore.Models.Invent.Receiving receiving = _context.Receiving.Where(x => x.warehouseId.Equals(Model.warehouseId)).FirstOrDefault();
+    netcore.Models.Invent.Shipment shipment = _context.Shipment.Where(x => x.warehouseId.Equals(Model.warehouseId)).FirstOrDefault();
+    netcore.Models.Invent.TransferOrder to = _context.TransferOrder.Where(x => x.warehouseIdFrom.Equals(Model.warehouseId) || x.warehouseIdTo.Equals(Model.warehouseId)).FirstOrDefault();
+    ViewData["IsCanDeleted"] = false;
+    if (receiving == null && shipment == null && to == null)
+    {
+        ViewData["IsCanDeleted"] = true;
+    }
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.branch.branchName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branch.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.warehouseName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.warehouseName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.street1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.street1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.street2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.street2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.province)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.province)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+    </dl>
+
+</div>

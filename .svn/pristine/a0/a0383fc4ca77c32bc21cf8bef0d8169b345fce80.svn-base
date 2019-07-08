@@ -1,0 +1,120 @@
+﻿@model netcore.Models.Invent.CustomerLine
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminlteNetcorePopup.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="customerLineId" />
+        <div class="form-group hidden">
+            <label asp-for="customerId" class="control-label"></label>
+            <select asp-for="customerId" class="form-control select2" asp-items="ViewBag.customerId"></select>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="salutation" class="control-label"></label>
+                    <select asp-for="salutation" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.Salutation>()"></select>
+                    <span asp-validation-for="salutation" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="firstName" class="control-label"></label>
+                    <input asp-for="firstName" class="form-control" />
+                    <span asp-validation-for="firstName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="middleName" class="control-label"></label>
+                    <input asp-for="middleName" class="form-control" />
+                    <span asp-validation-for="middleName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="lastName" class="control-label"></label>
+                    <input asp-for="lastName" class="form-control" />
+                    <span asp-validation-for="lastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="jobTitle" class="control-label"></label>
+            <input asp-for="jobTitle" class="form-control" />
+            <span asp-validation-for="jobTitle" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="nickName" class="control-label"></label>
+                    <input asp-for="nickName" class="form-control" />
+                    <span asp-validation-for="nickName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="gender" class="control-label"></label>
+                    <select asp-for="gender" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.Gender>()"></select>
+                    <span asp-validation-for="gender" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="mobilePhone" class="control-label"></label>
+                    <input asp-for="mobilePhone" class="form-control" />
+                    <span asp-validation-for="mobilePhone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="officePhone" class="control-label"></label>
+                    <input asp-for="officePhone" class="form-control" />
+                    <span asp-validation-for="officePhone" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="fax" class="control-label"></label>
+                    <input asp-for="fax" class="form-control" />
+                    <span asp-validation-for="fax" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="personalEmail" class="control-label"></label>
+                    <input asp-for="personalEmail" class="form-control" />
+                    <span asp-validation-for="personalEmail" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="workEmail" class="control-label"></label>
+                    <input asp-for="workEmail" class="form-control" />
+                    <span asp-validation-for="workEmail" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

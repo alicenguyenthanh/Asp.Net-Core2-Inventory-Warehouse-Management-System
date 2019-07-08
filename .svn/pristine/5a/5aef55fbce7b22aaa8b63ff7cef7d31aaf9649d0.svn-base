@@ -1,0 +1,82 @@
+﻿@model netcore.Models.Invent.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminlteNetcoreEdit.cshtml";
+    ViewData["EntityIcon"] = "fa fa-tags";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="productId" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="productCode" class="control-label"></label>
+                    <input asp-for="productCode" class="form-control" />
+                    <span asp-validation-for="productCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="productName" class="control-label"></label>
+                    <input asp-for="productName" class="form-control" />
+                    <span asp-validation-for="productName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="description" class="control-label"></label>
+            <input asp-for="description" class="form-control" />
+            <span asp-validation-for="description" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="barcode" class="control-label"></label>
+                    <input asp-for="barcode" class="form-control" />
+                    <span asp-validation-for="barcode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="serialNumber" class="control-label"></label>
+                    <input asp-for="serialNumber" class="form-control" />
+                    <span asp-validation-for="serialNumber" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="productType" class="control-label"></label>
+                    <select asp-for="productType" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.ProductType>()"></select>
+                    <span asp-validation-for="productType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="uom" class="control-label"></label>
+                    <select asp-for="uom" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.UOM>()"></select>
+                    <span asp-validation-for="uom" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+            @section Scripts {
+                 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
+
+
+

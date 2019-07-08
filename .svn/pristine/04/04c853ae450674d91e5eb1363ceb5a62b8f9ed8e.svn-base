@@ -1,0 +1,125 @@
+﻿@model netcore.Models.Invent.SalesOrder
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-cart-plus";
+    ViewData["DeleteInfo"] = "[Completed] Sales Order (SO) can not be deleted. Rollback status to [Open] by deleting related Delivery Order (Shipment)";
+    ViewData["IsCanDeleted"] = false;
+    if (Model.salesOrderStatus != netcore.Models.Invent.SalesOrderStatus.Completed)
+    {
+        ViewData["IsCanDeleted"] = true;
+    }
+
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrderNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.salesOrderNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.top)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.top)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.soDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.soDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.deliveryDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.deliveryDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.deliveryAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.deliveryAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.referenceNumberInternal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.referenceNumberInternal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.referenceNumberExternal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.referenceNumberExternal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branch.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.picInternal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.picInternal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.picCustomer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.picCustomer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrderStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.salesOrderStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.totalDiscountAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.totalDiscountAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.totalOrderAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.totalOrderAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.salesShipmentNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.salesShipmentNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.customerName)
+        </dd>
+    </dl>
+
+</div>

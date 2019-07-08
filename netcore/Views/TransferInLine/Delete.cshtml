@@ -1,0 +1,45 @@
+﻿@model netcore.Models.Invent.TransferInLine
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+}
+
+
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.qty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.qtyInventory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qtyInventory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product.productId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.transferIn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.transferIn.transferInId)
+        </dd>
+    </dl>
+    
+</div>

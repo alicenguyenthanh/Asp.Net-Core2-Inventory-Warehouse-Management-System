@@ -1,0 +1,83 @@
+﻿@model netcore.Models.Invent.Shipment
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-plane";
+    ViewData["DeleteInfo"] = "Delete Delivery order (shipment) will roll back related SO status to [Open]";
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.shipmentNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.shipmentNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.shipmentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.shipmentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customerPO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customerPO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.invoice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.invoice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.expeditionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.expeditionType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.expeditionMode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.expeditionMode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branch.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.customerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.salesOrder.salesOrderNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.warehouse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.warehouse.warehouseName)
+        </dd>
+    </dl>
+
+</div>

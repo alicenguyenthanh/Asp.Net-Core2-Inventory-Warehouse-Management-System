@@ -1,0 +1,99 @@
+﻿@model netcore.Models.Invent.CustomerLine
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+}
+
+
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.jobTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.jobTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.middleName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.middleName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nickName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nickName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.salutation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.salutation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.mobilePhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.mobilePhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.officePhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.officePhone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fax)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.personalEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.personalEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.workEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.workEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.customerId)
+        </dd>
+    </dl>
+    
+</div>

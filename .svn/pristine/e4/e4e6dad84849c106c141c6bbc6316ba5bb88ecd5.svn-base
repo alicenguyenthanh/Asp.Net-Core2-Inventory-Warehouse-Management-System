@@ -1,0 +1,84 @@
+﻿@model netcore.Models.Invent.ShipmentLine
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDetails.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-9">
+        <!-- Default box -->
+        <div class="box box-primary">
+            <div class="box-body">
+                <div>
+                      <dl class="dl-horizontal">
+                          <dt>
+                              @Html.DisplayNameFor(model => model.qty)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.qty)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.qtyShipment)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.qtyShipment)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.qtyInventory)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.qtyInventory)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.createdAt)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.createdAt)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.branch)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.branch.branchId)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.product)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.product.productId)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.shipment)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.shipment.shipmentId)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.warehouse)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.warehouse.warehouseId)
+                          </dd>
+                      </dl>                                   
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="form-group">
+                    <a asp-action="Edit" asp-route-id="@Model.shipmentLineId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Index" class="btn btn-default">Back to List</a>
+                </div>
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+
+

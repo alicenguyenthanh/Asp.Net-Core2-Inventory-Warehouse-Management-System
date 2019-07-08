@@ -1,0 +1,104 @@
+﻿@model IEnumerable<netcore.Models.Invent.VendorLine>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminlteNetcoreIndex.cshtml";
+}
+
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.jobTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.middleName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nickName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.salutation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.mobilePhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.officePhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.personalEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.workEmail)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vendor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.middleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.salutation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mobilePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.officePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.personalEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.workEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendor.vendorId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.vendorLineId"><i class="fa fa-pencil"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.vendorLineId"><i class="fa fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.vendorLineId"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

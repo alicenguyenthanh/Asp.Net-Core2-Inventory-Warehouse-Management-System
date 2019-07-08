@@ -1,0 +1,40 @@
+﻿@model netcore.Models.Invent.TransferOrderLine
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminlteNetcorePopup.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="transferOrderLineId" />
+        <div class="form-group hidden">
+            <label asp-for="transferOrderId" class="control-label"></label>
+            <select asp-for="transferOrderId" class="form-control select2" asp-items="ViewBag.transferOrderId"></select>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="productId" class="control-label"></label>
+                    <select asp-for="productId" class="form-control select2" asp-items="ViewBag.productId"></select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="qty" class="control-label"></label>
+                    <input asp-for="qty" class="form-control" />
+                    <span asp-validation-for="qty" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

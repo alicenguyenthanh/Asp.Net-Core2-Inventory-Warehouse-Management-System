@@ -1,0 +1,65 @@
+﻿@model netcore.Models.Invent.ReceivingLine
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminlteNetcorePopup.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="receivingLineId" />
+        <div class="form-group hidden">
+            <label asp-for="receivingId" class="control-label"></label>
+            <select asp-for="receivingId" class="form-control select2" asp-items="ViewBag.receivingId"></select>
+        </div>
+        <div class="form-group hidden">
+            <label asp-for="branchId" class="control-label"></label>
+            <select asp-for="branchId" class="form-control select2" asp-items="ViewBag.branchId"></select>
+        </div>
+        <div class="form-group hidden">
+            <label asp-for="warehouseId" class="control-label"></label>
+            <select asp-for="warehouseId" class="form-control select2" asp-items="ViewBag.warehouseId"></select>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="productId" class="control-label"></label>
+                    <select asp-for="productId" class="form-control select2" asp-items="ViewBag.productId"></select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="qty" class="control-label"></label>
+                    <input asp-for="qty" class="form-control" />
+                    <span asp-validation-for="qty" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="qtyReceive" class="control-label"></label>
+                    <input asp-for="qtyReceive" class="form-control" />
+                    <span asp-validation-for="qtyReceive" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group hidden">
+            <label asp-for="qtyInventory" class="control-label"></label>
+            <input asp-for="qtyInventory" class="form-control" />
+            <span asp-validation-for="qtyInventory" class="text-danger"></span>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

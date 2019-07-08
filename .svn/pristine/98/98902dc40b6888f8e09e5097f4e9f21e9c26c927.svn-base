@@ -1,0 +1,122 @@
+﻿@model netcore.Models.Invent.TransferOrder
+
+@{
+    Layout = "_AdminlteNetcore";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Transfer Order
+            <small>@Model.transferOrderNumber</small>
+        </h1>
+
+    </section>
+    <div class="pad margin no-print">
+        <div class="callout callout-info" style="margin-bottom: 0!important;">
+            <h4><i class="fa fa-info"></i> Note:</h4>
+            This page has been enhanced for printing. Click the print button at the bottom to print.
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="invoice">
+        <!-- title row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    <i class="fa fa-globe"></i> Transfer Order:
+                    <small class="pull-right">Date: @Model.transferOrderDate.ToString("dd-MMM-yyyy")</small>
+                </h2>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- info row -->
+        <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+                From Warehouse
+                <address>
+                    <strong>@Model.warehouseFrom.warehouseName</strong><br>
+                    @Model.warehouseFrom.street1<br>
+                    @Model.warehouseFrom.street2<br>
+                    @Model.warehouseFrom.city<br>
+                    attn: @Model.picName
+                </address>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+                To Warehouse
+                <address>
+                    <strong>@Model.warehouseTo.warehouseName</strong><br>
+                    @Model.warehouseTo.street1<br>
+                    @Model.warehouseTo.street2<br>
+                    @Model.warehouseTo.city<br>
+                    attn: @Model.picName
+                </address>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+                <b>TO Number:</b> @Model.transferOrderNumber<br>
+                <b>TO Date:</b> @Model.transferOrderDate.ToString("dd-MMM-yyyy")<br>
+                <b>PIC:</b> @Model.picName<br>
+
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- Table row -->
+        <div class="row">
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Product</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.transferOrderLine)
+                        {
+                            <tr>
+                                <td>@item.qty</td>
+                                <td>@item.product.productCode</td>
+                                <td>@item.product.productName</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+                <p class="lead">Descriptions:</p>
+                <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                    @Model.description
+                </p>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-6">
+                
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- this row will not appear when printing -->
+        <div class="row no-print">
+            <div class="col-xs-12">
+
+                <a href="@Url.Action("PrintTransferOrder", new { id = Model.transferOrderId })" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i> Print</a>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</div>
+<!-- /.content-wrapper -->

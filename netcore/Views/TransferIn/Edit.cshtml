@@ -1,0 +1,88 @@
+﻿@model netcore.Models.Invent.TransferIn
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminlteNetcoreEdit.cshtml";
+    ViewData["EntityIcon"] = "fa fa-download";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="transferInId" />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="transferInNumber" class="control-label"></label>
+                    <input asp-for="transferInNumber" class="form-control" />
+                    <span asp-validation-for="transferInNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="transferInDate" class="control-label"></label>
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input asp-for="transferInDate" class="form-control pull-right datepicker" type="text" />
+                    </div>
+                    <span asp-validation-for="transferInDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="transferOrderId" class="control-label"></label>
+                    <select asp-for="transferOrderId" class="form-control select2" asp-items="ViewBag.transferOrderId"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="description" class="control-label"></label>
+            <input asp-for="description" class="form-control" />
+            <span asp-validation-for="description" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="branchIdFrom" class="control-label"></label>
+                    <select asp-for="branchIdFrom" class="form-control select2" asp-items="ViewBag.branchIdFrom"></select>
+                    <span asp-validation-for="branchIdFrom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="branchIdTo" class="control-label"></label>
+                    <select asp-for="branchIdTo" class="form-control select2" asp-items="ViewBag.branchIdTo"></select>
+                    <span asp-validation-for="branchIdTo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="warehouseIdFrom" class="control-label"></label>
+                    <select asp-for="warehouseIdFrom" class="form-control select2" asp-items="ViewBag.warehouseIdFrom"></select>
+                    <span asp-validation-for="warehouseIdFrom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="warehouseIdTo" class="control-label"></label>
+                    <select asp-for="warehouseIdTo" class="form-control select2" asp-items="ViewBag.warehouseIdTo"></select>
+                    <span asp-validation-for="warehouseIdTo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

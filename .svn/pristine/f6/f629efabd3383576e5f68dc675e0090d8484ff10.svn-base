@@ -1,0 +1,188 @@
+﻿@model netcore.Models.ApplicationUser
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject netcore.Data.ApplicationDbContext Context
+@{
+
+    ApplicationUser appUser = await UserManager.GetUserAsync(User);
+
+}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        @if (Model != null)
+        {
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="@Model.profilePictureUrl" class="img-circle profilePicture" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>@Model.Email</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+        }
+
+        @if (appUser != null)
+        {
+            <ul class="sidebar-menu" data-widget="tree">
+
+
+                <li class="header">INVENTORY MANAGEMENT</li>
+                @if (appUser.HomeRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Home")">
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fa fa-bar-chart"></i> <span>Tổng quan</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.BranchRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Branch")">
+                        <a href="@Url.Action("Index", "Branch")">
+                            <i class="fa fa-building-o"></i> <span>Đơn vị công ty</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.WarehouseRole)
+                {
+                    <li class="header">Cấu hình Kho</li>
+                    <li class="@Html.IsSelected(controller: "Warehouse")">
+                        <a href="@Url.Action("Index", "Warehouse")">
+                            <i class="fa fa-cubes"></i> <span>Nhà kho</span>
+                        </a>
+                    </li>
+
+                }
+
+                @if (appUser.ProductRole)
+                {
+                    <li class="header"> </li>
+                    <li class="@Html.IsSelected(controller: "Product")">
+                        <a href="@Url.Action("Index", "Product")">
+                            <i class="fa fa-tags"></i> <span>Hàng hóa</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.StockRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Stock")">
+                        <a href="@Url.Action("Index", "Stock")">
+                            <i class="fa fa-cube"></i> <span>Tồn kho</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.VendorRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Vendor")">
+                        <a href="@Url.Action("Index", "Vendor")">
+                            <i class="fa fa-industry"></i> <span>Nhà cung cấp</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.PurchaseOrderRole)
+                {
+                    <li class="@Html.IsSelected(controller: "PurchaseOrder")">
+                        <a href="@Url.Action("Index", "PurchaseOrder")">
+                            <i class="fa fa-file-text"></i> <span>Nhập hàng</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.ReceivingRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Receiving")">
+                        <a href="@Url.Action("Index", "Receiving")">
+                            <i class="fa fa-truck"></i> <span>Nhận hàng hóa</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.CustomerRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Customer")">
+                        <a href="@Url.Action("Index", "Customer")">
+                            <i class="fa fa-bank"></i> <span>Khách hàng</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.SalesOrderRole)
+                {
+                    <li class="@Html.IsSelected(controller: "SalesOrder")">
+                        <a href="@Url.Action("Index", "SalesOrder")">
+                            <i class="fa fa-cart-plus"></i> <span>Xuất hàng</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.ShipmentRole)
+                {
+                    <li class="@Html.IsSelected(controller: "Shipment")">
+                        <a href="@Url.Action("Index", "Shipment")">
+                            <i class="fa fa-plane"></i><span> Giao hàng hóa</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.TransferOrderRole)
+                {
+                    <li class="@Html.IsSelected(controller: "TransferOrder")">
+                        <a href="@Url.Action("Index", "TransferOrder")">
+                            <i class="fa fa-recycle"></i> <span>Điều chuyển kho</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.TransferOutRole)
+                {
+                    <li class="@Html.IsSelected(controller: "TransferOut")">
+                        <a href="@Url.Action("Index", "TransferOut")">
+                            <i class="fa fa-upload"></i> <span>Vấn đề giao hàng</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.TransferInRole)
+                {
+                    <li class="@Html.IsSelected(controller: "TransferIn")">
+                        <a href="@Url.Action("Index", "TransferIn")">
+                            <i class="fa fa-download"></i> <span>Vấn đề nhận hàng</span>
+                        </a>
+                    </li>
+                }
+
+                @if (appUser.ApplicationUserRole)
+                {
+                    <li class="header">Quản lý Users</li>
+                    <li class="@Html.IsSelected(controller: "ApplicationUser")">
+                        <a href="@Url.Action("Index", "ApplicationUser")">
+                            <i class="fa fa-users"></i> <span>Phân quyền Users</span>
+                        </a>
+                    </li>
+
+                }
+
+                @*<li class="header">BONUS TEMPLATE</li>
+        <li class="@Html.IsSelected(controller: "Adminlte", action: "Dashboardv1")">
+            <a href="@lte.MVC.Pages.Dashbaordv1.Url" target="_blank">
+                <i class="fa fa-gears"></i> <span>Demo</span>
+            </a>
+        </li>*@
+            </ul>
+
+        }
+
+
+
+    </section>
+    <!-- /.sidebar -->
+</aside>

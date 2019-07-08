@@ -1,0 +1,257 @@
+﻿@model netcore.Models.Invent.TransferOrder
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDetails.cshtml";
+    ViewData["EntityIcon"] = "fa fa-recycle";
+    ViewData["DetailInfo"] = "If the transfer process already running (goods issue and goods receive), products can not be edited, deleted or added.";
+}
+
+
+
+<div class="row">
+    <div class="col-md-9">
+        <!-- Default box -->
+        <div class="box box-primary">
+            <div class="box-body">
+                <div>
+                      <dl class="dl-horizontal">
+                          <dt>
+                              @Html.DisplayNameFor(model => model.transferOrderNumber)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.transferOrderNumber)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.transferOrderDate)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.transferOrderDate)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.description)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.description)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.picName)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.picName)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.branchIdFrom)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.branchFrom.branchName)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.warehouseIdFrom)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.warehouseFrom.warehouseName)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.branchIdTo)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.branchTo.branchName)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.warehouseIdTo)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.warehouseTo.warehouseName)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.createdAt)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.createdAt)
+                          </dd>
+                      </dl>                                   
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="form-group">
+                    <a asp-action="Edit" asp-route-id="@Model.transferOrderId" class="btn btn-primary">Edit</a>
+                    <a asp-action="ShowTransferOrder" asp-route-id="@Model.transferOrderId" class="btn btn-primary pull-right"><i class="fa fa-print"></i> Print Transfer Order</a>
+                    <a asp-action="Index" class="btn btn-default">Back to List</a>
+                </div>
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-9">
+        <!-- Default box -->
+        <div class="box box-primary">
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table id="grid" name="grid" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="col-lg-6">Product</th>
+                                    <th class="col-lg-5">Qty Transfer</th>
+                                    <th class="col-lg-1"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-success" style="margin-bottom:10px" onclick="ShowPopup('@Url.Action("Create","TransferOrderLine", new { masterid = Model.transferOrderId })')"><i class="fa fa-plus"></i> Add New TransferOrderLine</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </div>
+    <div class="col-md-3">
+        @if (!String.IsNullOrEmpty(ViewBag.DetailInfo))
+        {
+            <div class="callout callout-info" style="margin-bottom: 0!important;">
+                <h4><i class="fa fa-info"></i> Info:</h4>
+                <p>
+                    @ViewBag.DetailInfo
+                </p>
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+    <!--modal placeholder-->
+    <div class="modal modal-primary fade" id="modalDefault">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+@section Scripts{
+      <script>
+        var popup, dataTable;
+        var entity = 'TransferOrderLine';
+        var apiurl = '/api/' + entity;
+
+        $(document).ready(function () {
+            dataTable = $('#grid').DataTable({
+                "ajax": {
+                    "url": apiurl + '?masterid=@Model.transferOrderId',
+                    "type": 'GET',
+                    "datatype": 'json'
+                },
+                "columns": [
+                    { "data": "product.productCode" },
+                    { "data": "qty" },
+                    {
+                        "data": "transferOrderLineId",
+                        "render": function (data) {
+                            var btnEdit = "<a class='btn btn-primary btn-xs' onclick=ShowPopup('/" + entity + "/Create/" + data + "')><i class='fa fa-pencil'></i></a>";
+                            var btnDelete = "<a class='btn btn-danger btn-xs' style='margin-left:2px' onclick=Delete('" + data + "')><i class='fa fa-trash'></i></a>";
+                            
+                            return "<div class='tools pull-right'>" + btnEdit + btnDelete + "</div>";
+                        }
+                    }
+                ],
+                "language": {
+                    "emptyTable": "no data found."
+                },
+                "lengthChange": false,
+                "info": false,
+                "searching": false,
+                "paging": false,
+            });
+        });
+
+        function ShowPopup(url) {
+            var modalId = 'modalDefault';
+            var modalPlaceholder = $('#' + modalId + ' .modal-dialog .modal-content');
+            $.get(url)
+                .done(function (response) {
+                    modalPlaceholder.html(response);
+                    popup = $('#' + modalId + '').modal({
+                        keyboard: false,
+                        backdrop: 'static'
+                    });
+                });
+        }
+
+
+        function SubmitAddEdit(form) {
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                var data = $(form).serializeJSON();
+                data = JSON.stringify(data);
+                $.ajax({
+                    type: 'POST',
+                    url: apiurl,
+                    data: data,
+                    contentType: 'application/json',
+                    success: function (data) {
+                        if (data.success) {
+                            popup.modal('hide');
+                            ShowMessage(data.message);
+                            dataTable.ajax.reload();
+                        } else {
+                            popup.modal('hide');
+                            ShowMessageError(data.message);
+                            dataTable.ajax.reload();
+                        }
+                    }
+                });
+
+            }
+            return false;
+        }
+
+        function Delete(id) {
+            swal({
+                title: "Are you sure want to Delete?",
+                text: "You will not be able to restore the data!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#dd4b39",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: true
+            }, function () {
+                $.ajax({
+                    type: 'DELETE',
+                    url: apiurl + '/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            ShowMessage(data.message);
+                            dataTable.ajax.reload();
+                        } else {
+                            ShowMessageError(data.message);
+                            dataTable.ajax.reload();
+                        }
+                    }
+                });
+            });
+
+
+        }
+
+      </script>
+}
+

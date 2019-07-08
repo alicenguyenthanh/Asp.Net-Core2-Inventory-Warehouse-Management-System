@@ -1,0 +1,77 @@
+﻿@model netcore.Models.Invent.Branch
+@inject netcore.Data.ApplicationDbContext _context;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-building-o";
+    ViewData["DeleteInfo"] = "Branch that already have warehouses can not be deleted.";
+    netcore.Models.Invent.Warehouse wh = _context.Warehouse.Where(x => x.branchId.Equals(Model.branchId)).FirstOrDefault();
+    ViewData["IsCanDeleted"] = false;
+    if (wh == null)
+    {
+        ViewData["IsCanDeleted"] = true;
+    }
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.branchName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.isDefaultBranch)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.isDefaultBranch)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.street1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.street1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.street2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.street2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.province)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.province)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+    </dl>
+
+</div>

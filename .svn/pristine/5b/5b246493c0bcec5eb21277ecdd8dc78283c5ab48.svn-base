@@ -1,0 +1,85 @@
+﻿@model netcore.Models.Invent.Product
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDetails.cshtml";
+    ViewData["EntityIcon"] = "fa fa-tags";
+}
+
+
+
+<div class="row">
+    <div class="col-md-9">
+        <!-- Default box -->
+        <div class="box box-primary">
+            <div class="box-body">
+                <div>
+                      <dl class="dl-horizontal">
+                          <dt>
+                              @Html.DisplayNameFor(model => model.productCode)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.productCode)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.productName)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.productName)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.description)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.description)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.barcode)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.barcode)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.serialNumber)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.serialNumber)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.productType)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.productType)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.uom)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.uom)
+                          </dd>
+                          <dt>
+                              @Html.DisplayNameFor(model => model.createdAt)
+                          </dt>
+                          <dd>
+                              @Html.DisplayFor(model => model.createdAt)
+                          </dd>
+                      </dl>                                   
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="form-group">
+                    <a asp-action="Edit" asp-route-id="@Model.productId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Index" class="btn btn-default">Back to List</a>
+                </div>
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+
+

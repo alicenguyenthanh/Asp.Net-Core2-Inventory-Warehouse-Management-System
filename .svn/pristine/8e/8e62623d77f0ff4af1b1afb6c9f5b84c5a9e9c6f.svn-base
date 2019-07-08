@@ -1,0 +1,78 @@
+﻿@model netcore.Models.Invent.TransferOrder
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-recycle";
+    ViewData["DeleteInfo"] = "[Completed] Transfer Order (TO) can not be deleted. Rollback status to [Open] by deleting related Goods Issue and Goods Receive";
+    ViewData["IsCanDeleted"] = false;
+    if (Model.transferOrderStatus != netcore.Models.Invent.TransferOrderStatus.Completed
+        && Model.isIssued == false
+        && Model.isReceived == false)
+    {
+        ViewData["IsCanDeleted"] = true;
+    }
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.transferOrderNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.transferOrderNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.transferOrderDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.transferOrderDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.picName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.picName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branchIdFrom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branchFrom.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.warehouseIdFrom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.warehouseFrom.warehouseName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branchIdTo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branchTo.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.warehouseIdTo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.warehouseTo.warehouseName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+    </dl>
+
+</div>

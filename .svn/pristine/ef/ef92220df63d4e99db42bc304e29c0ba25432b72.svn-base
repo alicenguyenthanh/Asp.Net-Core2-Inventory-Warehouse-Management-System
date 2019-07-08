@@ -1,0 +1,107 @@
+﻿@model netcore.Models.Invent.TransferOrder
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminlteNetcoreEdit.cshtml";
+    ViewData["EntityIcon"] = "fa fa-recycle";
+    ViewData["EditInfo"] = " TO have three status: 1. Draft (Unconfirmed TO, not ready for transfer), 2. Open (Confirmed TO, ready for transfer) and 3. Completed (Closed TO, already do the transfer process). Change status from [Draft] to [Open] to confirm the transfer order. [Completed] status is auto set when goods issue and goods receive already done.";
+}
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="transferOrderId" />
+        <input type="hidden" asp-for="transferOrderNumber" />
+        <input type="hidden" asp-for="isIssued" />
+        <input type="hidden" asp-for="isReceived" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="transferOrderNumber" class="control-label"></label>
+                    <input asp-for="transferOrderNumber" class="form-control" disabled />
+                    <span asp-validation-for="transferOrderNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="transferOrderDate" class="control-label"></label>
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input asp-for="transferOrderDate" value="@Model.transferOrderDate.ToString("MM/dd/yyyy")" class="form-control pull-right datepicker" type="text" />
+                    </div>
+                    <span asp-validation-for="transferOrderDate" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="description" class="control-label"></label>
+            <input asp-for="description" class="form-control" />
+            <span asp-validation-for="description" class="text-danger"></span>
+        </div>
+        <div class="row hidden">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="branchIdFrom" class="control-label"></label>
+                    <select asp-for="branchIdFrom" class="form-control select2" asp-items="ViewBag.branchIdFrom"></select>
+                    <span asp-validation-for="branchIdFrom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="branchIdTo" class="control-label"></label>
+                    <select asp-for="branchIdTo" class="form-control select2" asp-items="ViewBag.branchIdTo"></select>
+                    <span asp-validation-for="branchIdTo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="warehouseIdFrom" class="control-label"></label>
+                    <select asp-for="warehouseIdFrom" class="form-control select2" asp-items="ViewBag.warehouseIdFrom"></select>
+                    <span asp-validation-for="warehouseIdFrom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="warehouseIdTo" class="control-label"></label>
+                    <select asp-for="warehouseIdTo" class="form-control select2" asp-items="ViewBag.warehouseIdTo"></select>
+                    <span asp-validation-for="warehouseIdTo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="picName" class="control-label"></label>
+                    <input asp-for="picName" class="form-control" />
+                    <span asp-validation-for="picName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="transferOrderStatus" class="control-label"></label>
+                    <select asp-for="transferOrderStatus" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.TransferOrderStatus>()"></select>
+                    <span asp-validation-for="transferOrderStatus" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

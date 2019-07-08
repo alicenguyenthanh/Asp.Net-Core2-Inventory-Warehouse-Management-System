@@ -1,0 +1,57 @@
+﻿@model netcore.Models.Invent.SalesOrderLine
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+}
+
+
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.qty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.qty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.discountAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.discountAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.totalAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.totalAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product.productId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.salesOrder.salesOrderId)
+        </dd>
+    </dl>
+    
+</div>

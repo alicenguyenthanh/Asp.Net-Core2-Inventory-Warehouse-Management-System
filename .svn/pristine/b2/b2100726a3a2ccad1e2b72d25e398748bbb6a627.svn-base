@@ -1,0 +1,71 @@
+﻿@model netcore.Models.Invent.Receiving
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-truck";
+    ViewData["DeleteInfo"] = "Delete Purchase Receive (Receiving) will roll back related PO status to [Open]";
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.receivingNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.receivingNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.receivingDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.receivingDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorDO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vendorDO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorInvoice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vendorInvoice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.branch.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.purchaseOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.purchaseOrder.purchaseOrderNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.vendor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vendor.vendorName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.warehouse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.warehouse.warehouseName)
+        </dd>
+    </dl>
+
+</div>

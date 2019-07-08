@@ -1,0 +1,155 @@
+﻿@model netcore.Models.Invent.PurchaseOrder
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminlteNetcoreEdit.cshtml";
+    ViewData["EntityIcon"] = "fa fa-file-text";
+    ViewData["EditInfo"] = " PO have three status: 1. Draft (Unconfirmed PO, not ready to receive), 2. Open (Confirmed PO, ready to receive) and 3. Completed (Closed PO, already receive the products). Change status from [Draft] to [Open] to confirm the order. [Completed] status is auto set when PO used in Product Receive / Receiving.";
+}
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div class="row">
+    <div class="col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="purchaseOrderId" />
+        <input type="hidden" asp-for="purchaseOrderNumber" />
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="purchaseOrderNumber" class="control-label"></label>
+                    <input asp-for="purchaseOrderNumber" class="form-control" disabled/>
+                    <span asp-validation-for="purchaseOrderNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="top" class="control-label"></label>
+                    <select asp-for="top" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.TOP>()"></select>
+                    <span asp-validation-for="top" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="branchId" class="control-label"></label>
+                    <select asp-for="branchId" class="form-control select2" asp-items="ViewBag.branchId"></select>
+                    <span asp-validation-for="branchId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="poDate" class="control-label"></label>
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input asp-for="poDate" value="@Model.poDate.ToString("MM/dd/yyyy")" class="form-control pull-right datepicker" type="text" />
+                    </div>
+                    <span asp-validation-for="poDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="deliveryDate" class="control-label"></label>
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input asp-for="deliveryDate" value="@Model.poDate.ToString("MM/dd/yyyy")" class="form-control pull-right datepicker" type="text" />
+                    </div>
+                    <span asp-validation-for="deliveryDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="vendorId" class="control-label"></label>
+                    <select asp-for="vendorId" class="form-control select2" asp-items="ViewBag.vendorId"></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="purchaseOrderStatus" class="control-label"></label>
+                    <select asp-for="purchaseOrderStatus" class="form-control select2" asp-items="Html.GetEnumSelectList<netcore.Models.Invent.PurchaseOrderStatus>()"></select>
+                    <span asp-validation-for="purchaseOrderStatus" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="description" class="control-label"></label>
+                    <input asp-for="description" class="form-control" />
+                    <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="deliveryAddress" class="control-label"></label>
+            <input asp-for="deliveryAddress" class="form-control" />
+            <span asp-validation-for="deliveryAddress" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="referenceNumberInternal" class="control-label"></label>
+                    <input asp-for="referenceNumberInternal" class="form-control" />
+                    <span asp-validation-for="referenceNumberInternal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="referenceNumberExternal" class="control-label"></label>
+                    <input asp-for="referenceNumberExternal" class="form-control" />
+                    <span asp-validation-for="referenceNumberExternal" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="picInternal" class="control-label"></label>
+                    <input asp-for="picInternal" class="form-control" />
+                    <span asp-validation-for="picInternal" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="picVendor" class="control-label"></label>
+                    <input asp-for="picVendor" class="form-control" />
+                    <span asp-validation-for="picVendor" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label asp-for="totalDiscountAmount" class="control-label"></label>
+            <input asp-for="totalDiscountAmount" class="form-control" />
+            <span asp-validation-for="totalDiscountAmount" class="text-danger"></span>
+        </div>
+        <div class="form-group hidden">
+            <label asp-for="totalOrderAmount" class="control-label"></label>
+            <input asp-for="totalOrderAmount" class="form-control" />
+            <span asp-validation-for="totalOrderAmount" class="text-danger"></span>
+        </div>
+        <div class="form-group hidden">
+            <label asp-for="purchaseReceiveNumber" class="control-label"></label>
+            <input asp-for="purchaseReceiveNumber" class="form-control" />
+            <span asp-validation-for="purchaseReceiveNumber" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

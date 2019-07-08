@@ -1,0 +1,147 @@
+﻿@model IEnumerable<netcore.Models.Invent.PurchaseOrder>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminlteNetcoreIndex.cshtml";
+    ViewData["EntityIcon"] = "fa fa-file-text";
+    ViewData["ListTitle"] = "Purchase Order List";
+    ViewData["IndexInfo"] = "Purchase Order (PO) is a commercial document issued by your company as a buyer to your vendor as a products seller." +
+                " There are three status of PO: 1. Draft (Unconfirmed PO, not ready to receive), 2. Open (Confirmed PO, ready to receive) and 3. Completed (Closed PO, already receive the products).";
+}
+
+
+<table class="table table-hover table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.purchaseOrderNumber)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.top)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.poDate)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.deliveryDate)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.deliveryAddress)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.referenceNumberInternal)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.referenceNumberExternal)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.picInternal)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.picVendor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.purchaseOrderStatus)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.totalDiscountAmount)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.totalOrderAmount)
+            </th>
+            <th class="hidden">
+                @Html.DisplayNameFor(model => model.purchaseReceiveNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vendor)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <div class="tools">
+                    <a asp-action="Edit" asp-route-id="@item.purchaseOrderId" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.purchaseOrderId" class="btn btn-primary btn-xs"><i class="fa fa-list"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.purchaseOrderId" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                </div>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.purchaseOrderNumber)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.top)
+            </td>
+            <td>
+                @item.poDate.Date.ToString("dd-MMM-yyyy")
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.deliveryDate)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.deliveryAddress)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.referenceNumberInternal)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.referenceNumberExternal)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.picInternal)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.picVendor)
+            </td>
+            <td>
+                @if (item.purchaseOrderStatus == netcore.Models.Invent.PurchaseOrderStatus.Completed)
+                {
+                    <span class="label label-success">
+                        @Html.DisplayFor(modelItem => item.purchaseOrderStatus)
+                    </span>
+
+                }
+                @if (item.purchaseOrderStatus == netcore.Models.Invent.PurchaseOrderStatus.Open)
+                {
+                    <span class="label label-primary">
+                        @Html.DisplayFor(modelItem => item.purchaseOrderStatus)
+                    </span>
+
+                }
+                 @if (item.purchaseOrderStatus == netcore.Models.Invent.PurchaseOrderStatus.Draft)
+                 {
+                    <span class="label label-warning">
+                        @Html.DisplayFor(modelItem => item.purchaseOrderStatus)
+                    </span>
+
+                 }
+                
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.totalDiscountAmount)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.totalOrderAmount)
+            </td>
+            <td class="hidden">
+                @Html.DisplayFor(modelItem => item.purchaseReceiveNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendor.vendorName)
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

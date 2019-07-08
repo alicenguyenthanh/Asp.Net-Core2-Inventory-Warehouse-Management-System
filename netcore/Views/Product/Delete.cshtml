@@ -1,0 +1,73 @@
+﻿@model netcore.Models.Invent.Product
+@inject netcore.Data.ApplicationDbContext _context;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminlteNetcoreDelete.cshtml";
+    ViewData["EntityIcon"] = "fa fa-tags";
+    ViewData["DeleteInfo"] = "Không thể xóa sản phẩm đã có giao dịch (PO, SO, Lệnh điều chuyển kho)..";
+    netcore.Models.Invent.PurchaseOrderLine poline = _context.PurchaseOrderLine.Where(x => x.productId.Equals(Model.productId)).FirstOrDefault();
+    netcore.Models.Invent.SalesOrderLine soline = _context.SalesOrderLine.Where(x => x.productId.Equals(Model.productId)).FirstOrDefault();
+    netcore.Models.Invent.TransferOrderLine toline = _context.TransferOrderLine.Where(x => x.productId.Equals(Model.productId)).FirstOrDefault();
+    ViewData["IsCanDeleted"] = false;
+    if (poline == null && soline == null && toline == null)
+    {
+        ViewData["IsCanDeleted"] = true;
+    }
+}
+
+
+@Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.productCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.productName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.productName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.barcode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.barcode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.serialNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.serialNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.productType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.productType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.uom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.uom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.createdAt)
+        </dd>
+    </dl>
+
+</div>

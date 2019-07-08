@@ -1,0 +1,30 @@
+Nghiệp vụ quản lý:
+
+Đặt hàng
+Nhập hàng
+Xuất hàng
+Giao hàng
+Quản lý hàng hóa tồn kho
+Báo cáo thống kê kho
+Môi trường phát triển:
+
+ASP.NET Core 2
+JQuery, bootstrap
+EF Core / Code First
+C#
+SQL Server Express
+Microsoft Visual Studio 2017
+Windows 10
+
+
+================================
+Quản lý nhập kho hàng
+Quản lý xuất kho hàng
+Quản lý hàng hóa
+Quản lý nhà cung cấp
+Quản lý nhà kho
+Quản lý nhân viên, tính lương nhân viên
+Quản lý nhóm hàng hóa
+Quản lý phiếu nhập hàng
+Quản lý phiếu xuất hàng
+Quản lý thông tin tài khoản quản trị và nhân viên
