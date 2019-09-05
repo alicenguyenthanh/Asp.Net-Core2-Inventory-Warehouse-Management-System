@@ -24,50 +24,50 @@ namespace netcore.Models.Invent
         [Display(Name = "Transfer Order Id")]
         public string transferOrderId { get; set; }
 
-        [Display(Name = "Transfer Order")]
+        [Display(Name = "Lệnh xuất điều chuyển")]
         public TransferOrder transferOrder { get; set; }
 
         [StringLength(20)]
         [Required]
-        [Display(Name = "Goods Receive Number")]
+        [Display(Name = "Số hàng hóa (TI)")]
         public string transferInNumber { get; set; }
 
         [Required]
-        [Display(Name = "Goods Receive Date")]
+        [Display(Name = "Ngày hàng hóa (TI)")]
         public DateTime transferInDate { get; set; }
 
         [StringLength(100)]
         [Required]
-        [Display(Name = "Description")]
+        [Display(Name = "Thông tin mô tả")]
         public string description { get; set; }
 
 
         [StringLength(38)]
-        [Display(Name = "From Branch Id")]
+        [Display(Name = "Từ Đơn vị công ty Id")]
         public string branchIdFrom { get; set; }
 
-        [Display(Name = "From Branch")]
+        [Display(Name = "Từ Đơn vị công ty")]
         public Branch branchFrom { get; set; }
 
         [StringLength(38)]
-        [Display(Name = "From Warehouse Id")]
+        [Display(Name = "Từ kho Id")]
         public string warehouseIdFrom { get; set; }
 
-        [Display(Name = "From Warehouse")]
+        [Display(Name = "Từ kho")]
         public Warehouse warehouseFrom { get; set; }
 
         [StringLength(38)]
-        [Display(Name = "To Branch Id")]
+        [Display(Name = "Đến Đơn vị công ty Id")]
         public string branchIdTo { get; set; }
 
-        [Display(Name = "To Branch")]
+        [Display(Name = "Đến Đơn vị công ty")]
         public Branch branchTo { get; set; }
 
         [StringLength(38)]
-        [Display(Name = "To Warehouse Id")]
+        [Display(Name = "Đến kho Id")]
         public string warehouseIdTo { get; set; }
 
-        [Display(Name = "To Warehouse")]
+        [Display(Name = "Đến kho")]
         public Warehouse warehouseTo { get; set; }
 
         [Display(Name = "Transfer In Lines")]

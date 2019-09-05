@@ -5,7 +5,7 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_AdminlteNetcoreCreate.cshtml";
     ViewData["EntityIcon"] = "fa fa-download";
-    ViewData["CreateInfo"] = "Goods receive or transfer in, can only process [Open] transfer order that already processed the goods issue.";
+    ViewData["CreateInfo"] = "Hàng hóa nhập điều chuyển, chuyển vào kho, chỉ có thể xử lý lệnh chuyển trạng thái [OPEN].";
 }
 
 @Html.Partial("_StatusMessage", (string)ViewBag.StatusMessage)

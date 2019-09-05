@@ -75,8 +75,8 @@
             <!-- /.box-body -->
             <div class="box-footer">
                 <div class="form-group">
-                    <a asp-action="ShowTransferIn" asp-route-id="@Model.transferInId" class="btn btn-primary pull-right"><i class="fa fa-print"></i> Print Goods Receive</a>
-                    <a asp-action="Index" class="btn btn-default">Back to List</a>
+                    <a asp-action="ShowTransferIn" asp-route-id="@Model.transferInId" class="btn btn-primary pull-right"><i class="fa fa-print"></i> In nhập điều chuyển</a>
+                    <a asp-action="Index" class="btn btn-default">Quay về...</a>
                 </div>
             </div>
             <!-- /.box-footer-->
@@ -99,8 +99,8 @@
                         <table id="grid" name="grid" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="col-lg-6">Product</th>
-                                    <th class="col-lg-5">Qty</th>
+                                    <th class="col-lg-6">Hàng hóa</th>
+                                    <th class="col-lg-5">Số lượng</th>
                                     <th class="col-lg-1"></th>
                                 </tr>
                             </thead>
@@ -113,7 +113,7 @@
                 <div class="form-group hidden">
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-success" style="margin-bottom:10px" onclick="ShowPopup('@Url.Action("Create","TransferInLine", new { masterid = Model.transferInId })')"><i class="fa fa-plus"></i> Add New TransferInLine</a>
+                            <a class="btn btn-success" style="margin-bottom:10px" onclick="ShowPopup('@Url.Action("Create","TransferInLine", new { masterid = Model.transferInId })')"><i class="fa fa-plus"></i> Thêm hàng hóa</a>
                         </div>
                     </div>
                 </div>
